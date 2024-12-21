@@ -1,20 +1,20 @@
 'use client'
 
 import Link from 'next/link'
-import { useUser } from '@/lib/user-context'
-import { Button } from '@/components/ui/button'
+import { useUser } from '../lib/user-context'
+import { Button } from './ui/button'
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu'
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
+} from './ui/dropdown-menu'
+import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar'
 import { Bell, Settings, LogOut, User } from 'lucide-react'
-import { LoginModal } from './LoginModal'
+import { LoginModal } from './login-modal'
 import { useState } from 'react'
-import { usePreviewMode } from '@/contexts/PreviewModeContext'
-import PreviewMode from './PreviewMode';
+import { usePreviewMode } from '../contexts/PreviewModeContext'
+import { PreviewMode } from './PreviewMode'
 
 export function Header() {
   const { user, logout } = useUser()

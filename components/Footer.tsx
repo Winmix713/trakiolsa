@@ -1,5 +1,3 @@
-import Link from 'next/link'
-
 export function Footer() {
   return (
     <footer className="border-t bg-white dark:bg-gray-800 py-6">
@@ -9,15 +7,15 @@ export function Footer() {
             © 2024 WinMix. Minden jog fenntartva.
           </div>
           <nav className="flex flex-wrap justify-center gap-4">
-            <Link href="/privacy" className="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white">
+            <a href="/privacy" className="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white">
               Adatvédelmi irányelvek
-            </Link>
-            <Link href="/terms" className="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white">
+            </a>
+            <a href="/terms" className="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white">
               Felhasználási feltételek
-            </Link>
-            <Link href="/contact" className="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white">
+            </a>
+            <a href="/contact" className="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white">
               Kapcsolat
-            </Link>
+            </a>
           </nav>
         </div>
       </div>

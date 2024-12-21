@@ -1,10 +1,10 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { useUser } from '@/contexts/UserContext'
-import Header from '@/components/Header'
-import Footer from '@/components/Footer'
-import PredictionResults from '@/components/PredictionResults'
+import { useUser } from '../../lib/user-context'
+import { Header } from '../../components/Header'
+import { Footer } from '../../components/Footer'
+import { PredictionResults } from '../../components/PredictionResults'
 
 export default function FavoritesPage() {
   const { user } = useUser()

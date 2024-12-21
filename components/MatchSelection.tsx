@@ -1,29 +1,25 @@
 'use client'
 
 import { useState } from 'react'
-import { Button } from '@/components/ui/button'
+import { Button } from './ui/button'
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@/components/ui/select'
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import { useToast } from '@/components/ui/use-toast'
+} from './ui/select'
+import { Card, CardContent, CardHeader, CardTitle } from './ui/card'
+import { useToast } from './ui/use-toast'
 import { Loader2 } from 'lucide-react'
+import { TEAMS } from '../lib/constants'
 
-const TEAMS = [
-  {
-    id: "arsenal",
-    name: "London Ágyúk",
-    logoUrl: "https://resources.premierleague.com/premierleague/badges/50/t3.png",
-    weight: 1.0
-  },
-  // ... (többi csapat)
-].sort((a, b) => a.name.localeCompare(b.name));
+interface MatchSelectionProps {
+  onPredictionsGenerated?: (predictions: any[]) => void
+  timeLeft: number
+}
 
-export function MatchSelection() {
+export function MatchSelection({ onPredictionsGenerated, timeLeft }: MatchSelectionProps) {
   const [homeTeam, setHomeTeam] = useState('')
   const [awayTeam, setAwayTeam] = useState('')
   const [isLoading, setIsLoading] = useState(false)
@@ -53,7 +49,9 @@ export function MatchSelection() {
           title: "Predikció elkészült",
           description: "A predikció eredményei megtekinthetők a Predikciók oldalon.",
         })
-        // Navigate to predictions page or update state to show results
+        if (onPredictionsGenerated) {
+          onPredictionsGenerated(data)
+        }
       } else {
         throw new Error(data.error || 'Hiba történt a predikció során')
       }
@@ -122,7 +120,7 @@ export function MatchSelection() {
         <Button 
           className="w-full mt-6" 
           onClick={handlePrediction}
-          disabled={!homeTeam || !awayTeam || isLoading}
+          disabled={!homeTeam || !awayTeam || isLoading || timeLeft === 0}
         >
           {isLoading ? (
             <>
